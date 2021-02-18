@@ -59,7 +59,7 @@ int8_t digitalPinToPCINT(int8_t pin) {
   return digitalPinToInterrupt(pin);
 }
 
-static void changeInterrupt() {
+static ICACHE_RAM_ATTR void changeInterrupt() {
   for (byte i = 0; i < EXTERNAL_NUM_INTERRUPTS; ++i) {
     bool data = digitalRead(interruptToDigitalPin(i));
     if (data != state[i]) {
